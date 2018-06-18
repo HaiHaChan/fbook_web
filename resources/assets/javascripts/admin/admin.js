@@ -395,4 +395,52 @@ $(function ($) {
             });
         });
     });
+
+    $('.selectpicker').on('change', function(e) {
+        e.preventDefault();
+        var role = $(this).val();
+        console.log(role);
+        swal({
+            title: i18n['Are you sure change'],
+            type: "info",
+            showCancelButton: true,
+            confirmButtonColor: "#DD6B55",
+            confirmButtonText: i18n['Yes'],
+            closeOnConfirm: true
+        },
+        function() {
+
+            $.ajax({
+                url: API_PATH + 'admin/users/' + role,
+                contentType: 'application/json',
+                dataType: 'json',
+                headers: {'Content-Type': 'application/json', 'Accept': 'application/json', 'Authorization': access_token},
+                type: 'POST',
+                data: {},
+            }).done(function(response) {
+                if (response.message.code == 200) {
+                    showNotify(
+                        'success', 
+                        i18n['Change successfull!'], 
+                        {icon: 'glyphicon glyphicon-remove'},
+                        {delay: 3000}
+                    );
+                } else {
+                    showNotify(
+                        'danger', 
+                        i18n['Opp\'s something went wrong'],
+                        {icon: 'glyphicon glyphicon-remove'},
+                        {delay: 3000}
+                    );
+                }
+            }).fail(function(error) {
+                showNotify(
+                    'danger', 
+                    i18n['Opp\'s something went wrong'],
+                    {icon: 'glyphicon glyphicon-remove'},
+                    {delay: 3000}
+                );
+            });
+        });
+    });
 }(jQuery));

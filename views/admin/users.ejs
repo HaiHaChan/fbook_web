@@ -44,6 +44,7 @@
                             <th class="text-center"><%= __('Create Date') %></th>
                             <th class="text-center"><%= __('Book Own') %></th>
                             <th class="text-center"><%= __('Reputations') %></th>
+                            <th class="text-center"><%= __('Role') %></th>
                         </tr>
                         <% if (dataRequest.items.data.length > 0) { %>
                             <% dataRequest.items.data.forEach(function(data) { %>
@@ -54,6 +55,15 @@
                                 <td class="text-center"><%= data.join_date %></td>
                                 <td class="text-center"><%= data.owners_count %></td>
                                 <td class="text-center"><%= data.reputation_point %></td>
+                                <% if (user.role == 'admin') { %> 
+                                <td>
+                                    <select class="selectpicker">
+                                            <option value="<%= data.id + "/admin" %>" id="<%= "admin" + data.id %>" <%= data.role == __('admin') ? "Selected" : "" %> ><%= __('Admin') %></option>
+                                            <option value="<%= data.id + "/librarian" %>" <%= data.role == __('librarier') ? "Selected" : "" %> ><%= __('Librarian') %></option>
+                                            <option value="<%= data.id + "/user" %>" <%= data.role == __('user') ? "Selected" : "" %> ><%= __('User') %></option>
+                                    </select>
+                                </td>
+                                <% } %>
                             </tr>
                             <% }) %>
                         <% } %>
