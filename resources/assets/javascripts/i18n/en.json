@@ -118,5 +118,10 @@
     "Just change your role": "Just change your role.",
     "Set role user successfull": "Set role user successfull",
     "Set role user fail": "Set role user fail",
-    "Image feature field is required": "Image feature field is required"
+    "Image feature field is required": "Image feature field is required",
+    "unapprove waiting": "unapprove waiting",
+    "Cancel accept your request waiting book": "Cancel accept your request waiting book",
+    "prompt": "prompt",
+    "You have to return book": "You have to return book: ",
+    "You will be returned book": "You will be returned book"
 }
