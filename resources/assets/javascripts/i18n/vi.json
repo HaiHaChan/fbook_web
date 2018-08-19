@@ -118,5 +118,10 @@
     "Just change your role": "Vừa mới thay đổi quyền của bạn",
     "Set role user successfull": "Thay đổi quyền người dùng thành công",
     "Set role user fail": "Set role user Thay đổi quyền người dùng thất bại",
-    "Image feature field is required": "Ảnh đại diện bài viết không được để trống"
+    "Image feature field is required": "Ảnh đại diện bài viết không được để trống",
+    "unapprove waiting": "Chờ duyệt",
+    "Cancel accept your request waiting book": "Hủy chấp nhận yêu cầu chờ sách",
+    "prompt": "Nhắc nhở",
+    "You have to return book": "Bạn sắp phải trả sách: ",
+    "You will be returned book": "Bạn sắp được trả sách"
 }

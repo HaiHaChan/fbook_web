@@ -292,6 +292,40 @@ $(function ($) {
                             data.user_send.name + "</span>" + "<span> " + 
                             i18n['Just change your role'] + "</span>" + "</p>" + "<span class='text-color-noti label label-success" +
                             "'>" + i18n['Set Role'] + "</span>";
+                    } else if (data.type == configs.notification.unapprove_waiting) {
+                        htmlModel += "<a href='/books/" + data.book.id +
+                            "' class='a-notification-dropdown clearfix notification_onclick' style='display: block;' data-notification-id='" +
+                            data.id + "'>";
+                        if (data.book.title.length > showChar) {
+                            var content = data.book.title.substr(0, showChar);
+                            htmlModel +=
+                                "<p class='notification-p content-notification-dropdown'><span class='user-name-noti-dropdown'>" +
+                                data.user_send.name + " </span>" + "<span> " +
+                                i18n[' Cancel accept your request waiting book'] + ": " + content +
+                                ellipsestext + "</span>" + "</p>";
+                        } else {
+                            htmlModel +=
+                                "<p class='notification-p content-notification-dropdown'><span class='user-name-noti-dropdown'>" +
+                                data.user_send.name + "</span>" + "<span> " +
+                                i18n['Cancel accept your request waiting book'] + ": " + data.book.title +
+                                "</span>" + "</p>";
+                        }
+                        htmlModel +=
+                            "<span class='text-color-noti label label-warning lbl-waiting" +
+                            data.user_send.id +
+                            "'>" + i18n['unapprove waiting'] + "</span>";
+                    } else if (data.type == configs.notification.owner_prompt) {
+                        htmlModel += "<a href='/users/my_profile?pageSharing=1" + "' class='a-notification-dropdown clearfix notification_onclick' style='display: block;' data-notification-id='" +
+                            data.id + "'>" + "<p class='notification-p content-notification-dropdown'><span class='user-name-noti-dropdown'>" +
+                            data.user_send.name + "</span>" + "<span> " + 
+                            i18n['You will be returned book'] + "</span>" + "</p>" + "<span class='text-color-noti label label-success" +
+                            "'>" + i18n['prompt'] + "</span>";
+                    } else if (data.type == 'user_prompt') {
+                        htmlModel += "<a href='/books/" + data.book.id + "' class='a-notification-dropdown clearfix notification_onclick' style='display: block;' data-notification-id='" +
+                            data.id + "'>" + "<p class='notification-p content-notification-dropdown'><span class='user-name-noti-dropdown'>" +
+                            data.user_send.name + "</span>" + "<span> " + 
+                            i18n['You have to return book'] + data.book.title + "</span>" + "</p>" + "<span class='text-color-noti label label-success" +
+                            "'>" + i18n['prompt'] + "</span>";
                     }
                     htmlModel += "<p class='show text-danger pull-right time-ago-notification-dropdown'><span class='time_a_go'>" +
                             data.created_at + "</span></p></a></div></div>";
